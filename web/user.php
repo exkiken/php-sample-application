@@ -7,12 +7,12 @@ if ($user === null) {
     return;
 }
 
-$tweetsService = (require "dic/tweets.php");
+$tweetsService = (require "../dic/tweets.php");
 
 $tweets = $tweetsService->getLastByUser($_GET["id"]);
 $tweetsCount = $tweetsService->getTweetsCount($_GET["id"]);
 
-switch (require "dic/negotiated_format.php") {
+switch (require "../dic/negotiated_format.php") {
     case "text/html":
         (new Views\Layout(
             "Tweets from @$_GET[id]",
